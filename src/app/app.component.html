@@ -1,20 +1,81 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<ts-card tsVerticalSpacing>
+  <h3 tsCardTitle tsVerticalSpacing>
+    Input: ngModel
+  </h3>
+
+  <div style="max-width: 20rem;" tsVerticalSpacing>
+    <ts-select
+      label="Active mask"
+      [(ngModel)]="activeMask"
+      [isDisabled]="true"
+    >
+      <ts-select-option
+        [value]="mask"
+        *ngFor="let mask of masks"
+      >{{ mask }}</ts-select-option>
+    </ts-select>
+
+    <label>
+      <input type="checkbox" [(ngModel)]="sanitizeValue">
+      Sanitize model value
+    </label>
+    <br>
+    <label>
+      <input type="checkbox" [(ngModel)]="isClearable">
+      Allow input to be cleared
+    </label>
+    <br>
+    <label>
+      <input type="checkbox" [(ngModel)]="isDisabled">
+      Disabled
+    </label>
+    <br>
+    <label>
+      <input type="checkbox" [(ngModel)]="isFocused">
+      Focused
+    </label>
+    <br>
+    <label>
+      <input type="checkbox" [(ngModel)]="isRequired">
+      Required
+    </label>
+    <br>
+    <label>
+      <input type="checkbox" [(ngModel)]="hideRequiredMarker">
+      Hide required marker
+    </label>
+    <br>
+    <label>
+      <input type="checkbox" [(ngModel)]="isReadonly">
+      Readonly
+    </label>
+    <br>
+    <label>
+      <input type="checkbox" [(ngModel)]="allowDecimal">
+      Allow decimal
+    </label>
+
+  </div>
+
+
+  <ts-input
+    [(ngModel)]="myValue"
+    label="Input with ngModel"
+    [maskSanitizeValue]="sanitizeValue"
+    [isRequired]="isRequired"
+    [hideRequiredMarker]="hideRequiredMarker"
+    [isClearable]="isClearable"
+    [isDisabled]="isDisabled"
+    [isFocused]="isFocused"
+    [maskAllowDecimal]="allowDecimal"
+    [readOnly]="isReadonly"
+    [mask]="activeMask"
+    [autocomplete]="'on'"
+    name="static input"
+    theme="accent"
+    tsVerticalSpacing="small--0"
+  ></ts-input>
+
+  <strong>ngModel value: {{ myValue }}</strong>
+</ts-card>
 
